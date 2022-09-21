@@ -1,0 +1,4 @@
+tmp
+Dockerfile*
+docker-compose*
+docker_conf
