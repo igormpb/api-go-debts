@@ -1,10 +1,11 @@
 package routes
 
 import (
-	"api-go/database"
-	"api-go/types"
-	"api-go/utils"
 	"context"
+
+	"github.com/igormpb/api-go-debts/database"
+	"github.com/igormpb/api-go-debts/types"
+	"github.com/igormpb/api-go-debts/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"

@@ -1,9 +1,10 @@
 package routes
 
 import (
-	"api-go/database"
-	"api-go/utils"
 	"context"
+
+	"github.com/igormpb/api-go-debts/database"
+	"github.com/igormpb/api-go-debts/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
@@ -19,15 +20,12 @@ func ShowDebts(ctx *fiber.Ctx) error {
 	cursor, err := db.Collection("debts").Find(context.Background(), filter)
 	if err != nil {
 		return utils.ResponseError(ctx, fiber.StatusBadRequest, "Serviço indisponivel", "XXXX")
-		return err
 	}
 
 	var items []bson.M
 	if err = cursor.All(context.Background(), &items); err != nil {
 		return utils.ResponseError(ctx, fiber.StatusBadRequest, "Serviço indisponivel", "XXXX")
-		return err
 	}
 
-	utils.Response(ctx, fiber.StatusOK, items)
-	return nil
+	return utils.Response(ctx, fiber.StatusOK, items)
 }

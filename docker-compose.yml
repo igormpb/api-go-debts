@@ -1,18 +1,22 @@
-version: "3.7"
+version: "3"
 
 services:
   app:
+    hostname: app
     container_name: api-go
     build: .
     command: go run main.go
     ports: 
       - 3000:3000
     volumes: 
-     - .:/usr/app/test
+      - .:/usr/app
     env_file:
       - .env
+    depends_on:
+      - "rabbitmq"
   rabbitmq:
-    image: rabbitmq:3.8-management-alpine
+    image: "rabbitmq:3-management"
+    hostname: rabbitmq
     container_name: rabbitmq
     volumes:
       - ./docker_conf/rabbitmq/log:/var/log/rabbitmq
@@ -22,8 +26,5 @@ services:
       - 5672:5672
     env_file:
       - .env
-    networks:
-        - rabbitmq_go_net
-networks:
-  rabbitmq_go_net:
-    driver: bridge
+    labels:
+      NAME: "rabbitmq"

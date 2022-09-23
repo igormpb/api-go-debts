@@ -9,6 +9,7 @@ type User struct {
 	Password  string    `bson:"password" json:"password"`
 	Username  string    `bson:"username" json:"username"`
 	BirthDate string    `bson:"birthdate" json:"birthdate"`
+	Status    string    `bson:"status" json:"status"`
 	CreatedAt time.Time `bson:"created_at" json:"created_at"`
 	UpdatedAt time.Time `bson:"updated_at" json:"updated_at"`
 }

@@ -1,13 +1,13 @@
 package routes
 
 import (
-	"api-go/database"
-	"api-go/types"
-	"api-go/utils"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
+	"github.com/igormpb/api-go-debts/database"
+	"github.com/igormpb/api-go-debts/types"
+	"github.com/igormpb/api-go-debts/utils"
 )
 
 func CreateDebt(ctx *fiber.Ctx) error {
